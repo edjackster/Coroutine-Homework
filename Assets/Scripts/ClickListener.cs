@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickListener : MonoBehaviour
 {
-    public event Action OnClick;
+    public event Action Click;
 
-    void Update()
+    private void Update()
     {
         if(Input.GetMouseButtonDown(0))
-            OnClick?.Invoke();
+            Click?.Invoke();
     }
 }

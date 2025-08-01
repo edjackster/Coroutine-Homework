@@ -10,21 +10,21 @@ public class CounterView : MonoBehaviour
 
     private void Start()
     {
-        _text = GetComponent<TextMeshProUGUI>();        
+        _text = GetComponent<TextMeshProUGUI>();
+    }
+
+    private void OnEnable()
+    {
+        _counter.CountChange += UpdateText;
+    }
+
+    private void OnDisable()
+    {
+        _counter.CountChange -= UpdateText;
     }
 
     private void UpdateText()
     {
         _text.text = _counter.TimerCount.ToString();
-    }
-
-    private void OnEnable()
-    {
-        _counter.OnCountChange += UpdateText;
-    }
-
-    private void OnDisable()
-    {
-        _counter.OnCountChange -= UpdateText;
     }
 }
